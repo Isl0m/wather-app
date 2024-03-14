@@ -1,0 +1,61 @@
+:root {
+  --bg-color: #ffffff;
+  --primary-text: #000000;
+  --secondary-text: #bbbbbb;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--primary-text);
+  font-family: "Poppins", sans-serif;
+}
+
+main .weather-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+.weather-card #location {
+  font-size: 1.5rem;
+  margin-bottom: 0;
+}
+
+.weather-card .temperature-block {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-card img#weather-icon {
+  width: 100px;
+}
+
+.weather-card #temperature {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.weather-card #temperature-descriptbaseUrlion {
+  margin-top: 0;
+}
+
+.weather-card .detailed-info h4 {
+  font-size: 1rem;
+  font-weight: 400;
+  margin: 0.25rem 0;
+}
+
+.error-card #error-message {
+  font-size: 2rem;
+  font-weight: 600;
+  color: rgb(200, 25, 25);
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
