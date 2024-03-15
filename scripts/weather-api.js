@@ -1,7 +1,7 @@
 const weatherCard = document.getElementsByClassName("weather-card")[0];
 
 function getWeatherInfo(city) {
-  const url = "http://52.233.28.162:8000";
+  const url = "http://weather-back.centralus.cloudapp.azure.com:8080";
   fetch(`${url}/weather?city=${city}`)
     .then((response) => response.json())
     .then((response) => {
