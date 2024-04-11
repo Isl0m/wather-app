@@ -10,6 +10,20 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+input {
+  outline: none;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25rem;
+}
+
+main .loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 main .weather-card {
   display: flex;
   flex-direction: column;
@@ -18,9 +32,13 @@ main .weather-card {
   margin: 0 auto;
 }
 
+main .weather-card #city-input {
+  margin: 1rem 0;
+}
+
 .weather-card #location {
   font-size: 1.5rem;
-  margin-bottom: 0;
+  margin: 0;
 }
 
 .weather-card .temperature-block {

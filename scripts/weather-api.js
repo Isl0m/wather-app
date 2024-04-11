@@ -1,19 +1,32 @@
 const weatherCard = document.getElementsByClassName("weather-card")[0];
+const loading = document.getElementsByClassName("loading")[0];
 
-function getWeatherInfo(city) {
+function fetchWeatherData(city) {
+  const cacheData = weatherCache.getWeatherCacheData(city);
+  if (cacheData) {
+    loading.classList.add("hidden");
+    setWeatherData(cacheData);
+    return;
+  }
+
   const url = "https://weather-back-ics3i2drfa-uc.a.run.app";
-  fetch(`${url}/weather?city=${city}`)
+  return fetch(`${url}/weather?city=${city}`)
     .then((response) => response.json())
-    .then((response) => {
-      if (response.data) {
-        setWeatherData(response.data);
-      } else {
-        setErrorData(response.error);
-      }
-    })
-    .catch((error) => {
-      setErrorData({ message: "Error while fetching data from DB" });
+    .catch(() => {
+      return { message: "Error while fetching data from DB" };
     });
+}
+
+async function updateWeatherData(city) {
+  const response = await fetchWeatherData(city);
+  if (response?.data) {
+    setWeatherData(response.data);
+    loading.classList.add("hidden");
+    weatherCache.setWeatherCacheData(city, response.data);
+  } else {
+    loading.classList.add("hidden");
+    setErrorData(response.error);
+  }
 }
 
 function setWeatherData(weatherData) {
